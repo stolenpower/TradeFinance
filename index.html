@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+	<!-- Required meta tags -->
+	<!-- <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
+	 
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<!-- web3.js 1.0.0 -->    
+	<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.36/dist/web3.min.js" integrity="sha256-nWBTbvxhJgjslRyuAKJHK+XcZPlCnmIAAMixz6EefVk=" crossorigin="anonymous"></script>
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Eleven01 | Trade Finance</title>
+  <title>TradeFinance-Dapp</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.36/dist/web3.min.js" integrity="sha256-nWBTbvxhJgjslRyuAKJHK+XcZPlCnmIAAMixz6EefVk=" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/font-awesome.min.css">
   <link rel="stylesheet" href="css/ionicons.min.css">
@@ -23,196 +32,515 @@
       <span class="logo-lg"><img src="img/logo2.png" alt=""></span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
- 
+    <nav class="navbar navbar-static-top">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle d-md-none d-lg-none d-xl-none" data-toggle="push-menu" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
+      <span class="db-title"></span>
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav my-2 my-lg-0">
+          <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <img src="img/user_avatar.png" class="user-image" alt="User Image">
+              <span class=""><b>Deployed on:</b> Eleven01-Network</span>
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                  <a href="index.html"><i class="fa fa-lock"></i> Sign out</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
   </header>
 
   <aside class="main-sidebar">
     <section class="sidebar">
-
-            <ul class="nav nav-tabs" id="tabs" role="tablist">
-                    <li class="nav-item">
-                    <a class="nav-link active"  
-                    data-toggle="tab" href="#MyProfile" role="tab" aria-controls="newwallet" aria-selected="true">Raise Request</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link"  data-toggle="tab" href="#Pending-Request" role="tab" aria-controls="Tab2" aria-selected="false">Importer</a>
-                    </li>        
-                    </ul>
-
-
- 
+      <ul class="nav nav-tabs" id="tabs" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active"   data-toggle="tab" href="#productTransferedBySeller" role="tab" aria-controls="newwallet" aria-selected="true">Product TransferedBy Seller</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link"  data-toggle="tab" href="#requestAcceptedByFI" role="tab" aria-controls="Tab2" aria-selected="false">Request AcceptedBy FI</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link"  data-toggle="tab" href="#requestAcceptedBySeller" role="tab" aria-controls="Tab2" aria-selected="false">Request AcceptedBy Seller</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link"  data-toggle="tab" href="#sendAdvanceAmountToSellerByFIinvoiceId" role="tab" aria-controls="Tab2" aria-selected="false">SendAdvanceAmount ToSellerByFI InvoiceId</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link"  data-toggle="tab" href="#sendAmountToFIByBuyer" role="tab" aria-controls="Tab2" aria-selected="false">SendAmount ToFIBy Buyer</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  data-toggle="tab" href="#sendRemainingAmountToSellerByFI" role="tab" aria-controls="Tab2" aria-selected="false">SendRemainingAmount ToSellerBy FI</a>
+       </li>
+      <li class="nav-item">
+          <a class="nav-link"  data-toggle="tab" href="#sendRequestByBuyer" role="tab" aria-controls="Tab2" aria-selected="false">SendRequestBy Buyer</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"  data-toggle="tab" href="#setBuyer" role="tab" aria-controls="Tab2" aria-selected="false">Set Buyer</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link"  data-toggle="tab" href="#setFinancialInstitution" role="tab" aria-controls="Tab2" aria-selected="false">Set FinancialInstitution</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link"  data-toggle="tab" href="#setSeller" role="tab" aria-controls="Tab2" aria-selected="false">Set Seller</a>
+  </li>  
+      </ul>      
     </section>
   </aside>
 
-  <div class="content-wrapper trade-finance pt-5 d-flex align-items-center">
- 
-   
+  <div class="content-wrapper">
+    <section class="content-header">
+     
+    </section>
+    <section class="content">
+      <div class="tab-content" id="tabs-content">
 
-
-
-
-
-
-            <div class="col-md-12 mx-auto ">
-
-                  <div class="tab-content" id="tabs-content">
- <div class="tab-pane fade show active" id="MyProfile" role="tabpanel" aria-labelledby="Tab1-tab">
-
-
-   
-  <div class="box ">
-
-               
-                <div class="col-md-4  col-sm-6  col-lg-4 mx-auto ">   
-                    <h3 class="main-title">     Raise Request </h3>
-                  <div class="">          
-                      <form action="#">
-                        <div class="form-group">
-                           
-                          <div class="col-md-12 p-0">
-                            <input type="text" class="form-control" id="productname" placeholder="Name of the Product">
-                          </div>
-                        </div>
-                        <div class="form-group">
-                        
-                          <div class="col-md-12 p-0">
-                            <input type="text" class="form-control" id="Quantity" placeholder="Quantity">
-                          </div>
-                        </div>
-                        <div class="form-group">
-                       
-                          <div class="col-md-12 p-0">
-                            <input type="text" class="form-control" id="Product" placeholder="Product">
-                          </div>
-                        </div>
-                        <div class="form-group">
-                    
-                          <div class="col-md-12 p-0">
-                            <input type="text" class="form-control" id="price" placeholder="Price">
-                          </div>
-                        </div>
-                        <div class="form-group">
-            
-                          <div class="col-md-12 p-0">
-                            <input type="text" class="form-control" id="Exporter" placeholder="Exporter">
-                          </div>
-                        </div>  
-                        <div class="form-group"> 
-                          <div class="col-md-12 p-0">
-                            <button type="submit" class="btn btn-primary w-100">Raise Request</button>
-                            </div>
-                          </div>
-                        </form></div>
-                      
-                    </div>
+        <!-- tab 1 -->
+        <div class="tab-pane fade" id="productTransferedBySeller" role="tabpanel" aria-labelledby="Tab2-tab">
+          <div class="outer-box">
+            <h3 class="outer-box-title">Product-TransferedBy-Seller</h3>
+            <div class="row">
+                <div class="col-sm-7 mx-auto">
+            <form class="mrb30">
+              <div class="form-group  ">
+                <label for="staticEmail2" class="sr-only">Enter-invoiceId</label>
+                <input type="text" readonly class="form-control-plaintext" id="Account" value="Enter-invoiceId">
               </div>
+              <div class="form-group   ">
+                <label for="Deposit" class="sr-only"></label>
+                <input type="text" class="form-control" id="Invc" placeholder="uint256">
+              </div>
+              <button type="button" onclick="productTransferedBySeller()" class="btn btn-primary mb-2">invoiceId</button>
+            </form>
+            <table class="table table-striped table-bordered">
+              <tr>
+                <td width="150">Status:</td>
+                <td><p id="productTransferedBySellerStatus"><p></td>
+              </tr>
+              <tr>
+                <td>Block Number:</td>
+                <td><p id="productTransferedBySellerBlockNumber"><p></td>
+              </tr>   
+              <tr>
+                <td>Block Hash:</td>
+                <td><p id="productTransferedBySellerHash"><p></td>
+              </tr>     
+            </table>
+            </div></div>
+          </div>
+        </div>
 
- </div>
-
-
- <div class="tab-pane fade" id="Pending-Request" role="tabpanel" aria-labelledby="Tab2-tab">
-  <h3 class="main-title">     Importer </h3>
-  <div class="box ">
-               
-                <div class="box-body p-0">
-                  <div class="row">        
-                    <div class="col-md-12 ">   
-                      <div class="table-responsive border-radius-table">       
-                        <table class="table table-bordered mb-0">
-                        <thead>
-                          <tr>
-                            <th class="text-center">Importer</th>
-                            <th  class="text-center">Product</th>
-                            <th  class="text-center">Quantity</th>
-                            <th  class="text-center">Price</th>
-                            <th  class="text-center">Action</th>
-                            <th  class="text-center">Bank</th>
-                            <th  class="text-center">Credit</th>
-                            <th  class="text-center">Work Status</th>
-                            <th  class="text-center">Status</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                              <td  class="text-center">0x12121</td>
-                              <td  class="text-center">iPhone</td>
-                              <td  class="text-center">2</td>
-                              <td  class="text-center">1200$</td>
-                              <td  class="text-center">Requested</td>
-                              <td  class="text-center">Request for Approval </td>
-                              <td  class="text-center">800</td>
-                              <td  class="text-center">Yet to Start</td>
-                              <td  class="text-center">-</td>
-                          </tr>
-                          <tr>
-                            <td  class="text-center">0x12121</td>
-                            <td  class="text-center">iPhone</td>
-                            <td  class="text-center">2</td>
-                            <td  class="text-center">1200$</td>
-                            <td  class="text-center">Requested</td>
-                            <td  class="text-center">-</td>
-                            <td  class="text-center">800</td>
-                            <td  class="text-center">Yet to Start</td>
-                            <td  class="text-center">-</td>
-                        </tr>
-
-                        <tr>
-                          <td  class="text-center">0x12121</td>
-                          <td  class="text-center">iPhone</td>
-                          <td  class="text-center">2</td>
-                          <td  class="text-center">1200$</td>
-                          <td  class="text-center"><span class="text-success">Approved from exporter</span></td>
-                          <td  class="text-center"><span class="text-success">Approved</span></td>
-                          <td  class="text-center">800</td>
-                          <td  class="text-center"><span class="text-success">Completed</span></td>
-                          <td  class="text-center">Settled</td>
-                      </tr>
-
-                      <tr>
-                        <td  class="text-center">0x12121</td>
-                        <td  class="text-center">iPhone</td>
-                        <td  class="text-center">2</td>
-                        <td  class="text-center">1200$</td>
-                        <td  class="text-center">Requested</td>
-                        <td  class="text-center">-</td>
-                        <td  class="text-center">800</td>
-                        <td  class="text-center">Yet to Start</td>
-                        <td  class="text-center">-</td>
-                    </tr>
-
-                    
-                    <tr>
-                        <td  class="text-center">0x12121</td>
-                        <td  class="text-center">iPhone</td>
-                        <td  class="text-center">2</td>
-                        <td  class="text-center">1200$</td>
-                        <td  class="text-center"><span class="text-success">Approved from exporter</span></td>
-                        <td  class="text-center"><span class="text-success">Approved</span></td>
-                        <td  class="text-center">800</td>
-                        <td  class="text-center"><span class="text-success">Completed</span></td>
-                        <td  class="text-center">Settled</td>
-                    </tr>
-
-
- 
-                        </tbody>
-                      </table>
-                      </div>
-                    </div>       
+        <!-- tab 2 -->            
+            <div class="tab-pane fade" id="requestAcceptedByFI" role="tabpanel" aria-labelledby="Tab2-tab">
+              <div class="outer-box">
+                <h3 class="outer-box-title">Request-AcceptedBy-FI</h3>
+                <div class="row">
+                    <div class="col-sm-7 mx-auto">
+                <form class=" mrb30">
+                  <div class="form-group  ">
+                    <label for="staticEmail2" class="sr-only">Enter-invoiceId</label>
+                    <input type="text" readonly class="form-control-plaintext" id="Account" value="Enter-invoiceId">
                   </div>
-                </div>
+                  <div class="form-group  ">
+                    <label for="Deposit" class="sr-only"></label>
+                    <input type="text" class="form-control" id="Id" placeholder="uint256">
+                  </div>
+                  <button type="button" onclick="requestAcceptedByFI()" class="btn btn-primary mb-2">invoiceId</button>
+                </form>
+            <table class="table table-striped table-bordered">
+              <tr>
+                <td width="150">Status:</td>
+                <td><p id="requestAcceptedByFIStatus"><p></td>
+              </tr>
+              <tr>
+                <td>Block Number:</td>
+                <td><p id="requestAcceptedByFIBlockNumber"><p></td>
+              </tr>   
+              <tr>
+                <td>Block Hash:</td>
+                <td><p id="requestAcceptedByFIHash"><p></td>
+              </tr>     
+            </table>
+            </div></div>
+          </div>
+        </div>
+
+        <!-- tab 3-->            
+        <div class="tab-pane fade" id="requestAcceptedBySeller" role="tabpanel" aria-labelledby="Tab2-tab">
+          <div class="outer-box">
+            <h3 class="outer-box-title">Request-AcceptedBy-Seller</h3>
+            <div class="row">
+              <div class="col-sm-7 mx-auto">
+                <form class=" mrb30">
+              <div class="form-group mb-2">
+                <label for="address">InvoiceId</label>
+                <input type="email" class="form-control" id="iceId" name="invoiceId" placeholder="uint256">
               </div>
+              <div class="form-group">
+                <label for="amount">ProductName</label>
+                <input type="email" class="form-control" id="pName" name="productName" placeholder="string">
+              </div>
+              <div class="form-group">
+                <label for="address">Quantity</label>
+                <input type="email" class="form-control" id="qty" name="quantity" placeholder="uint256">
+              </div>
+              <div class="form-group">
+                <label for="amount">ProductPrice</label>
+                <input type="email" class="form-control" id="pPrice" name="productPrice" placeholder="uint256">
+              </div>
+              <div class="form-group">
+                <label for="address">AdvanceAmount</label>
+                <input type="email" class="form-control" id="advAmount" name="advaceAmount" placeholder="uint256">
+              </div>
+              <button type="button" onclick="requestAcceptedBySeller()" class="btn btn-primary mb-2">RequestAcceptedBySeller</button>
+            </form>
+            <table class="table table-striped table-bordered">
+              <tr>
+                <td width="150">Status:</td>
+                <td><p id="requestAcceptedBySellerStatus"><p></td>
+              </tr>
+              <tr>
+                <td>Block Number:</td>
+                <td><p id="requestAcceptedBySellerBlockNumber"><p></td>
+              </tr>   
+              <tr>
+                <td>Block Hash:</td>
+                <td><p id="requestAcceptedBySellerHash"><p></td>
+              </tr>     
+            </table>
+          </div>
+        </div>
+          </div>
+          </div>
 
- </div>
+        <!-- tab 4-->            
+        <div class="tab-pane fade" id="sendAdvanceAmountToSellerByFIinvoiceId" role="tabpanel" aria-labelledby="Tab2-tab">
+          <div class="outer-box">
+          <h3 class="outer-box-title">SendAdvance-ToSeller-ByFI-invoiceId</h3>
+          <div class="row">
+              <div class="col-sm-7 mx-auto">
+          <form class=" mrb30">
+            <div class="form-group">
+              <label for="address">InvoiceId</label>
+              <input type="email" class="form-control" id="invId" name="InvoiceId"  placeholder="uint256">
+            </div>
+            <div class="form-group">
+              <label for="Amount">FIId</label>
+              <input type="email" class="form-control" id="FId" name="Amount"  placeholder="uint256">
+            </div>
+            <div class="form-group">
+              <label for="amount">SellerId</label>
+              <input type="email" class="form-control" id="slrId" name="SellerId"  placeholder="uint256">
+            </div>
+            <div class="form-group">
+              <label for="amount">AdvanceAmount</label>
+              <input type="email" class="form-control" id="advaceAmount" name="AdvanceAmount"  placeholder="uint256">
+            </div>
+            <button type="button" onclick="sendAdvanceAmountToSellerByFIinvoiceId()" class="btn btn-primary mb-2">SendAdvanceAmountToSellerByFIinvoiceId</button>
+          </form>
+          <table class="table table-striped table-bordered">
+            <tr>
+              <td width="150">Status:</td>
+              <td><p id="sendAdvanceAmountToSellerByFIinvoiceIdStatus"><p></td>
+            </tr>
+            <tr>
+              <td>Block Number:</td>
+              <td><p id="sendAdvanceAmountToSellerByFIinvoiceIdBlockNumber"><p></td>
+            </tr>   
+            <tr>
+              <td>Block Hash:</td>
+              <td><p id="sendAdvanceAmountToSellerByFIinvoiceIdHash"><p></td>
+            </tr>     
+          </table>
+          </div></div>
+        </div>
+      </div>
 
+        <!-- tab 5-->            
+        <div class="tab-pane fade" id="sendAmountToFIByBuyer" role="tabpanel" aria-labelledby="Tab2-tab">
+            <div class="outer-box">
+            <h3 class="outer-box-title">SendAmount-ToFI-ByBuyer</h3>
+            <div class="row">
+                <div class="col-sm-7 mx-auto">
+            <form class=" mrb30">
+              <div class="form-group">
+                <label for="address">InvoiceId</label>
+                <input type="email" class="form-control" id="invoicId" name="InvoiceId" placeholder="uint256">
+              </div>
+              <div class="form-group">
+                <label for="amount">FIId</label>
+                <input type="email" class="form-control" id="fIId" name="FIId" placeholder="uint256">
+              </div>
+              <div class="form-group">
+                <label for="amount">BuyerId</label>
+                <input type="email" class="form-control" id="TransbuyerIdferAddress" name="BuyerId" placeholder="uint256">
+              </div>
+              <div class="form-group">
+                <label for="amount">Amount</label>
+                <input type="email" class="form-control" id="Amount" name="Amount" placeholder="uint256">
+              </div>
+              <button type="button" onclick="sendAmountToFIByBuyer()" class="btn btn-primary mb-2">SendAmountToFIByBuyer</button>
+            </form>
+            <table class="table table-striped table-bordered">
+              <tr>
+                <td width="150">Status:</td>
+                <td><p id="sendAmountToFIByBuyerStatus"><p></td>
+              </tr>
+              <tr>
+                <td>Block Number:</td>
+                <td><p id="sendAmountToFIByBuyerBlockNumber"><p></td>
+              </tr>   
+              <tr>
+                <td>Block Hash:</td>
+                <td><p id="sendAmountToFIByBuyerHash"><p></td>
+              </tr>     
+            </table>
+            </div></div>
+          </div>
+        </div>
 
-     </div>
-</div>
-<footer class="main-footer">
-  <p> To Check The Details <a href="bank.html">ClickHere</p></br>
-    <!-- //<p> To Check The Details <a href="exporter.html">ClickHere</p> -->
-</footer>
+         <!-- tab 6-->            
+         <div class="tab-pane fade" id="sendRemainingAmountToSellerByFI" role="tabpanel" aria-labelledby="Tab2-tab">
+          <div class="outer-box">
+          <h3 class="outer-box-title">sendRemaining-AmountToSeller-ByFI</h3>
+          <div class="row">
+            <div class="col-sm-7 mx-auto">
+              <form class="mrb30">
+            <div class="form-group">
+              <label for="address">InvoiceId</label>
+              <input type="email" class="form-control" id="invoiceId" name="InvoiceId" placeholder="uint256">
+            </div>
+            <div class="form-group">
+              <label for="amount">FIId</label>
+              <input type="email" class="form-control" id="FIId" name="FIId" placeholder="uint256">
+            </div>
+            <div class="form-group">
+              <label for="amount">SellerId</label>
+              <input type="email" class="form-control" id="sellrId" name="SellerId" placeholder="uint256">
+            </div>
+            <div class="form-group">
+              <label for="amount">RemainingBalance</label>
+              <input type="email" class="form-control" id="RemainingBalance" name="RemainingBalance" placeholder="uint256">
+            </div>
+            <button type="button" onclick="sendRemainingAmountToSellerByFI()" class="btn btn-primary">SendRemainingAmountToSellerByFI</button>
+          </form>
+          <table class="table table-striped table-bordered">
+            <tr>
+              <td width="150">Status:</td>
+              <td><p id=" sendRemainingAmountToSellerByFIStatus"><p></td>
+            </tr>
+            <tr>
+              <td>Block Number:</td>
+              <td><p id=" sendRemainingAmountToSellerByFIBlockNumber"><p></td>
+            </tr>   
+            <tr>
+              <td>Block Hash:</td>
+              <td><p id=" sendRemainingAmountToSellerByFIHash"><p></td>
+            </tr>     
+          </table>
+        </div>
+      </div>
+      </div>
+      </div>
+
+       <!-- tab 7-->            
+       <div class="tab-pane fade" id="sendRequestByBuyer" role="tabpanel" aria-labelledby="Tab2-tab">
+        <div class="outer-box">
+        <h3 class="outer-box-title">sendRequest-ByBuyer</h3>
+        <div class="row">
+          <div class="col-sm-7 mx-auto">
+            <form class="  mrb30">
+          <div class="form-group">
+            <label for="address">ProductId</label>
+            <input type="email" class="form-control" id="productId" name="ProductId" placeholder="uint256">
+          </div>
+          <div class="form-group">
+            <label for="amount">ProductName</label>
+            <input type="email" class="form-control" id="productName" name="ProductName" placeholder="string">
+          </div>
+          <div class="form-group">
+            <label for="amount">Quantity</label>
+            <input type="email" class="form-control" id="quantity" name="Quantity" placeholder="uint256">
+          </div>
+          <div class="form-group">
+            <label for="amount">ProductPrice</label>
+            <input type="email" class="form-control" id="productPrice" name="ProductPrice" placeholder="uint256">
+          </div>
+          <p><button type="button" onclick="sendRequestByBuyer()" class="btn btn-primary">SendRequestByBuyer</button></p>
+        </form>
+        <table class="table table-striped table-bordered">
+          <tr>
+            <td width="150">Status:</td>
+            <td><p id="sendRequestByBuyerStatus"><p></td>
+          </tr>
+          <tr>
+            <td>Block Number:</td>
+            <td><p id="sendRequestByBuyerBlockNumber"><p></td>
+          </tr>   
+          <tr>
+            <td>Block Hash:</td>
+            <td><p id="sendRequestByBuyerHash"><p></td>
+          </tr>     
+        </table>
+      </div>
+    </div>
+    </div></div>
+
+     <!-- tab 8-->            
+     <div class="tab-pane fade" id="setBuyer" role="tabpanel" aria-labelledby="Tab2-tab">
+      <div class="outer-box">
+      <h3 class="outer-box-title">set-Buyer</h3>
+      <div class="row">
+        <div class="col-sm-7 mx-auto">
+          <form class="  mrb30">
+        <div class="form-group">
+          <label for="address">BuyerId</label>
+          <input type="email" class="form-control" id="buyerId" name="BuyerId" placeholder="uint256">
+        </div>
+        <div class="form-group">
+          <label for="amount">BuyerName</label>
+          <input type="email" class="form-control" id="buyerName" name="BuyerName" placeholder="string">
+        </div>
+        <div class="form-group">
+          <label for="amount">Country</label>
+          <input type="email" class="form-control" id="bcountry" name="Country" placeholder="string">
+        </div>
+        <div class="form-group">
+          <label for="amount">BuyerAddress</label>
+          <input type="email" class="form-control" id="buyerAddress" name="BuyerAddress" placeholder="address">
+        </div>
+        <div class="form-group">
+          <label for="amount">BuyerBalance</label>
+          <input type="email" class="form-control" id="buyerBalance" name="BuyerBalance" placeholder="uint256">
+        </div>
+        <p><button type="button" onclick="setBuyer()" class="btn btn-primary">SetBuyer</button></p>
+      </form>
+      <table class="table table-striped table-bordered">
+        <tr>
+          <td width="150">Status:</td>
+          <td><p id="setBuyerStatus"><p></td>
+        </tr>
+        <tr>
+          <td>Block Number:</td>
+          <td><p id="setBuyerBlockNumber"><p></td>
+        </tr>   
+        <tr>
+          <td>Block Hash:</td>
+          <td><p id="setBuyerHash"><p></td>
+        </tr>     
+      </table>
+    </div>
   </div>
+  </div>
+  </div>
+
+   <!-- tab 9-->            
+   <div class="tab-pane fade" id="setFinancialInstitution" role="tabpanel" aria-labelledby="Tab2-tab">
+    <div class="outer-box">
+    <h3 class="outer-box-title">setFinancial-Institution</h3>
+    <div class="row">
+      <div class="col-sm-7 mx-auto">
+        <form class="  mrb30">
+      <div class="form-group">
+        <label for="address">FIId</label>
+        <input type="email" class="form-control" id="FIId" name="FIId" placeholder="uint256">
+      </div>
+      <div class="form-group">
+        <label for="amount">FIName</label>
+        <input type="email" class="form-control" id="FIName" name="FIName" placeholder="string">
+      </div>
+      <div class="form-group">
+        <label for="amount">FIAddress</label>
+        <input type="email" class="form-control" id="FIAddress" name="FIAddress" placeholder="address">
+      </div>
+      <div class="form-group">
+        <label for="amount">FIBalance</label>
+        <input type="email" class="form-control" id="FIBalance" name="FIBalance" placeholder="uint256">
+      </div>
+      <p><button type="button" onclick="setFinancialInstitution()" class="btn btn-primary">SetFinancialInstitution</button></p>
+    </form>
+    <table class="table table-striped table-bordered">
+      <tr>
+        <td width="150">Status:</td>
+        <td><p id="setFinancialInstitutionStatus"><p></td>
+      </tr>
+      <tr>
+        <td>Block Number:</td>
+        <td><p id="setFinancialInstitutionBlockNumber"><p></td>
+      </tr>   
+      <tr>
+        <td>Block Hash:</td>
+        <td><p id="setFinancialInstitutionHash"><p></td>
+      </tr>     
+    </table>
+  </div>
+</div>
+</div>
+</div>
+
+ <!-- tab 10-->            
+ <div class="tab-pane fade" id="setSeller" role="tabpanel" aria-labelledby="Tab2-tab">
+  <div class="outer-box">
+  <h3 class="outer-box-title">set-Seller</h3>
+  <div class="row">
+    <div class="col-sm-7 mx-auto">
+      <form class="  mrb30">
+    <div class="form-group">
+      <label for="address">SellerId</label>
+      <input type="email" class="form-control" id="sellerId" name="SellerId" placeholder="uint256">
+    </div>
+    <div class="form-group">
+      <label for="amount">SellerName</label>
+      <input type="email" class="form-control" id="sellerName" name="SellerName" placeholder="string">
+    </div>
+    <div class="form-group">
+      <label for="amount">Country</label>
+      <input type="email" class="form-control" id="country" name="Country" placeholder="string">
+    </div>
+    <div class="form-group">
+      <label for="amount">SellerAddress</label>
+      <input type="email" class="form-control" id="sellerAddress" name="SellerAddress" placeholder="address">
+    </div>
+    <div class="form-group">
+      <label for="amount">SellerBalance</label>
+      <input type="email" class="form-control" id="sellerBalance" name="SellerBalance" placeholder="uint256">
+    </div>
+    <p><button type="button" onclick="setSeller()" class="btn btn-primary">SetSeller</button></p>
+  </form>
+  <table class="table table-striped table-bordered">
+    <tr>
+      <td width="150">Status:</td>
+      <td><p id="setSellerStatus"><p></td>
+    </tr>
+    <tr>
+      <td>Block Number:</td>
+      <td><p id="setSellerBlockNumber"><p></td>
+    </tr>   
+    <tr>
+      <td>Block Hash:</td>
+      <td><p id="setSellerHash"><p></td>
+    </tr>     
+  </table>
+</div>
+</div>
+</div>
+</div>
+
+        
+  </div>
+    </section>
+  </div>
+  <footer class="main-footer">
+     <p> To Check The Details <a href="verify.html">ClickHere</p>
+  </footer>
+</div>
+
 
 <script src="js/jquery.min.js"></script>
 <script src="js/jquery-ui.min.js"></script>
@@ -903,28 +1231,3 @@ $(document).ready(function() {
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-              
-            
-
-
-        
-     
-
