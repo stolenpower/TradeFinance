@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<!-- Required meta tags -->
+	<!-- <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
+	 
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<!-- web3.js 1.0.0 -->    
+	<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.36/dist/web3.min.js" integrity="sha256-nWBTbvxhJgjslRyuAKJHK+XcZPlCnmIAAMixz6EefVk=" crossorigin="anonymous"></script>
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>TradeFinance-Dapp</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/ionicons.min.css">
+  <link rel="stylesheet" href="css/AdminLTE.min.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+  <header class="main-header">
+    <a href="#" class="logo">
+      <span class="logo-mini"><img src="img/logo-icon-small.png" alt=""></span>
+      <span class="logo-lg"><img src="img/logo2.png" alt=""></span>
+    </a>
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle d-md-none d-lg-none d-xl-none" data-toggle="push-menu" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
+      <span class="db-title"></span>
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav my-2 my-lg-0">
+          <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <img src="img/user_avatar.png" class="user-image" alt="User Image">
+              <span class=""><b>Deployed on:</b> Eleven01-Network</span>
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                  <a href="index.html"><i class="fa fa-lock"></i> Sign out</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <aside class="main-sidebar">
+    <section class="sidebar">
+      <ul class="nav nav-tabs" id="tabs" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active"   data-toggle="tab" href="#Buyers" role="tab" aria-controls="newwallet" aria-selected="true">Buyers</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link"  data-toggle="tab" href="#FinancialInstitution" role="tab" aria-controls="Tab2" aria-selected="false">Financial Institution</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link"  data-toggle="tab" href="#Products" role="tab" aria-controls="Tab2" aria-selected="false">Products</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link"  data-toggle="tab" href="#ProductStatus" role="tab" aria-controls="Tab2" aria-selected="false">ProductStatus</a>
+        </li> 
+        <li class="nav-item">
+                <a class="nav-link"  data-toggle="tab" href="#Sellers" role="tab" aria-controls="Tab2" aria-selected="false">Sellers</a>
+            </li> 
+      </ul>      
+    </section>
+  </aside>
+
+  <div class="content-wrapper">
+    <section class="content-header">
+     
+    </section>
+    <section class="content">
+      <div class="tab-content" id="tabs-content">
+
+        <!-- tab 1 -->
+        <div class="tab-pane fade" id="Buyers" role="tabpanel" aria-labelledby="Tab2-tab">
+          <div class="outer-box">
+            <h3 class="outer-box-title">Buyers</h3>
+            <div class="row">
+                <div class="col-sm-7 mx-auto">
+            <form class="mrb30">
+              <div class="form-group  ">
+                <label for="staticEmail2" class="sr-only">Enter-invoiceId</label>
+                <input type="text" readonly class="form-control-plaintext" id="Account" value="Buyers">
+              </div>
+              <div class="form-group   ">
+                <label for="Buyers" class="sr-only"></label>
+                <input type="text" class="form-control" id="Buyers" placeholder="uint256">
+              </div>
+              <button type="button" onclick="buyers()" class="btn btn-primary mb-2">buyers</button>
+            </form>
+            <table class="table" id="table1">
+                    <tr>
+                            <th>buyerId</th>
+                            <th>buyerName</th>
+                            <th>country</th>
+                            <th>buyerAddress</th>
+                            <th>buyerBalance</th>
+                        </tr>     
+                  </table>
+            </div></div>
+          </div>
+        </div>
+
+        <!-- tab 2 -->            
+            <div class="tab-pane fade" id="FinancialInstitution" role="tabpanel" aria-labelledby="Tab2-tab">
+              <div class="outer-box">
+                <h3 class="outer-box-title">FinancialInstitution</h3>
+                <div class="row">
+                    <div class="col-sm-7 mx-auto">
+                <form class=" mrb30">
+                  <div class="form-group  ">
+                    <label for="staticEmail2" class="sr-only">Enter-invoiceId</label>
+                    <input type="text" readonly class="form-control-plaintext" id="Account" value="Financial-Institution">
+                  </div>
+                  <div class="form-group  ">
+                    <label for="FinancialInstitution" class="sr-only"></label>
+                    <input type="text" class="form-control" id="FinancialInstitution" placeholder="uint256">
+                  </div>
+                  <button type="button" onclick="fis()" class="btn btn-primary mb-2">FinancialInstitution</button>
+                </form>
+                <table class="table"  id="table2">
+                        <tr>
+                                <th>FIId</th>
+                                <th>FIName</th>
+                                <th>FIAddress</th>
+                                <th>FIBalance</th>
+                            </tr>     
+                      </table>
+            </div></div>
+          </div>
+        </div>
+
+        <!-- tab 3-->            
+        <div class="tab-pane fade" id="Products" role="tabpanel" aria-labelledby="Tab2-tab">
+          <div class="outer-box">
+            <h3 class="outer-box-title">Products</h3>
+            <div class="row">
+                    <div class="col-sm-7 mx-auto">
+                <form class=" mrb30">
+                  <div class="form-group  ">
+                    <label for="staticEmail2" class="sr-only">Enter-invoiceId</label>
+                    <input type="text" readonly class="form-control-plaintext" id="Account" value="Products">
+                  </div>
+                  <div class="form-group  ">
+                    <label for="Products" class="sr-only"></label>
+                    <input type="text" class="form-control" id="Products" placeholder="uint256">
+                  </div>
+              <button type="button" onclick="products()" class="btn btn-primary mb-2">Products</button>
+            </form>
+            <table class="table"  id="table3">
+                    <tr>
+                            <th>productId</th>
+                            <th>productName</th>
+                            <th>quantity</th>
+                            <th>productPrice</th>
+
+                        </tr>     
+                  </table>
+          </div>
+        </div>
+          </div>
+          </div>
+
+        <!-- tab 4-->            
+        <div class="tab-pane fade" id="ProductStatus" role="tabpanel" aria-labelledby="Tab2-tab">
+          <div class="outer-box">
+          <h3 class="outer-box-title">ProductStatus</h3>
+          <div class="row">
+                <div class="col-sm-12 mx-auto">
+            <form class=" mrb30">
+              <div class="form-group  ">
+                <label for="staticEmail2" class="sr-only">Enter-invoiceId</label>
+                <input type="text" readonly class="form-control-plaintext" id="Account" value="ProductStatus">
+              </div>
+              <div class="form-group  ">
+                <label for="ProductStatus" class="sr-only"></label>
+                <input type="text" class="form-control" id="ProductStatus" placeholder="uint256">
+              </div>
+            <button type="button" onclick="productstatus()" class="btn btn-primary mb-2">ProductsStatus</button>
+          </form>
+          <table class="table"  id="table4">
+                <tr>
+                        <th>invoiceId</th>
+                        <th>productName</th>
+                        <th>quantity</th>
+                        <th>productPrice</th>
+                        <th>IsitSeller</th>
+                        <th>status</th>
+                        <th>advanceAmount</th>
+                        <th>IsitFI</th>
+                        <th>IsitApproved</th>
+                        <th>advaceAmountReceived</th>
+                        <th>ProductTransfered</th>
+                        <th>Amount</th>
+                        <th>RemainingBalance</th>
+      
+                    </tr>     
+              </table>
+          </div></div>
+        </div>
+      </div>
+
+        <!-- tab 5-->            
+        <div class="tab-pane fade" id="Sellers" role="tabpanel" aria-labelledby="Tab2-tab">
+            <div class="outer-box">
+            <h3 class="outer-box-title">Sellers</h3>
+            <div class="row">
+                    <div class="col-sm-7 mx-auto">
+                <form class=" mrb30">
+                  <div class="form-group  ">
+                    <label for="staticEmail2" class="sr-only">Enter-invoiceId</label>
+                    <input type="text" readonly class="form-control-plaintext" id="Account" value="Sellers">
+                  </div>
+                  <div class="form-group  ">
+                    <label for="Sellers" class="sr-only"></label>
+                    <input type="text" class="form-control" id="Sellers" placeholder="uint256">
+                  </div>
+              <button type="button" onclick="sellers()" class="btn btn-primary mb-2">Sellers</button>
+            </form>
+            <table class="table"  id="table5">
+                        <tr>
+                            <th>sellerId</th>
+                            <th>sellerName</th>
+                            <th>country</th>
+                            <th>sellerAddress</th>
+                            <th>sellerBalance</th>
+            
+                          
+                        </tr>    
+                  </table>
+            </div></div>
+          </div>
+        </div>
+
+  </div>
+    </section>
+  </div>
+  <!-- <footer class="main-footer">
+     <p>Copyright &copy; 2019 <a href="#">Eleven01.io</p>
+  </footer> -->
+</div>
+
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script>
+  $.widget.bridge('uibutton', $.ui.button);
+</script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/adminlte.min.js"></script>
+
+<script type="text/javascript">
+  
+$(document).ready(function() {
+  $('.nav-item a').click(function(){
+        $("body").removeClass("sidebar-open");
+    });
+});
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=<Google Maps Javascript API token>"
+  type="text/javascript"></script>
+
+<script>
+
+  function openTab(evt, tabname) {
+      // Declare all variables
+      var i, tabcontent, tablinks;
+  
+      // Get all elements with class="tabcontent" and hide them
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+      }
+  
+      // Get all elements with class="tablinks" and remove the class "active"
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+  
+      // Show the current tab, and add an "active" class to the button that opened the tab
+      document.getElementById(tabname).style.display = "block";
+      evt.currentTarget.className += " active";
+  }
+  
+  if (typeof web3 !== "undefined") {
+    web3 = new Web3(web3.currentProvider);
+  } else {
+    web3 = new Web3(new Web3.providers.HttpProvider("http://104.43.214.171:24000/api/node/rpc"));
+  }
+
+  var abi =[
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "productstatus",
+      "outputs": [
+        {
+          "name": "invoiceId",
+          "type": "uint256"
+        },
+        {
+          "name": "productName",
+          "type": "string"
+        },
+        {
+          "name": "quantity",
+          "type": "uint256"
+        },
+        {
+          "name": "productPrice",
+          "type": "uint256"
+        },
+        {
+          "name": "IsitSeller",
+          "type": "bool"
+        },
+        {
+          "name": "status",
+          "type": "string"
+        },
+        {
+          "name": "advaceAmount",
+          "type": "uint256"
+        },
+        {
+          "name": "IsitFI",
+          "type": "bool"
+        },
+        {
+          "name": "IsitApproved",
+          "type": "bool"
+        },
+        {
+          "name": "advaceAmountReceived",
+          "type": "bool"
+        },
+        {
+          "name": "ProductTransfered",
+          "type": "bool"
+        },
+        {
+          "name": "Amount",
+          "type": "uint256"
+        },
+        {
+          "name": "RemainingBalance",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "products",
+      "outputs": [
+        {
+          "name": "productId",
+          "type": "uint256"
+        },
+        {
+          "name": "productName",
+          "type": "string"
+        },
+        {
+          "name": "quantity",
+          "type": "uint256"
+        },
+        {
+          "name": "productPrice",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "sellers",
+      "outputs": [
+        {
+          "name": "sellerId",
+          "type": "uint256"
+        },
+        {
+          "name": "sellerName",
+          "type": "string"
+        },
+        {
+          "name": "country",
+          "type": "string"
+        },
+        {
+          "name": "sellerAddress",
+          "type": "address"
+        },
+        {
+          "name": "sellerBalance",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "fis",
+      "outputs": [
+        {
+          "name": "FIId",
+          "type": "uint256"
+        },
+        {
+          "name": "FIName",
+          "type": "string"
+        },
+        {
+          "name": "FIAddress",
+          "type": "address"
+        },
+        {
+          "name": "FIBalance",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "buyers",
+      "outputs": [
+        {
+          "name": "buyerId",
+          "type": "uint256"
+        },
+        {
+          "name": "buyerName",
+          "type": "string"
+        },
+        {
+          "name": "country",
+          "type": "string"
+        },
+        {
+          "name": "buyerAddress",
+          "type": "address"
+        },
+        {
+          "name": "buyerBalance",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "name": "_buyer",
+          "type": "address"
+        },
+        {
+          "name": "_seller",
+          "type": "address"
+        },
+        {
+          "name": "_Financialinstitution",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "buyerId",
+          "type": "uint256"
+        },
+        {
+          "name": "buyerName",
+          "type": "string"
+        },
+        {
+          "name": "country",
+          "type": "string"
+        },
+        {
+          "name": "buyerAddress",
+          "type": "address"
+        },
+        {
+          "name": "buyerBalance",
+          "type": "uint256"
+        }
+      ],
+      "name": "setBuyer",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "sellerId",
+          "type": "uint256"
+        },
+        {
+          "name": "sellerName",
+          "type": "string"
+        },
+        {
+          "name": "country",
+          "type": "string"
+        },
+        {
+          "name": "sellerAddress",
+          "type": "address"
+        },
+        {
+          "name": "sellerBalance",
+          "type": "uint256"
+        }
+      ],
+      "name": "setSeller",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "FIId",
+          "type": "uint256"
+        },
+        {
+          "name": "FIName",
+          "type": "string"
+        },
+        {
+          "name": "FIAddress",
+          "type": "address"
+        },
+        {
+          "name": "FIBalance",
+          "type": "uint256"
+        }
+      ],
+      "name": "setFinancialInstitution",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "productId",
+          "type": "uint256"
+        },
+        {
+          "name": "productName",
+          "type": "string"
+        },
+        {
+          "name": "quantity",
+          "type": "uint256"
+        },
+        {
+          "name": "productPrice",
+          "type": "uint256"
+        }
+      ],
+      "name": "sendRequestByBuyer",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "invoiceId",
+          "type": "uint256"
+        },
+        {
+          "name": "productName",
+          "type": "string"
+        },
+        {
+          "name": "quantity",
+          "type": "uint256"
+        },
+        {
+          "name": "productPrice",
+          "type": "uint256"
+        },
+        {
+          "name": "advaceAmount",
+          "type": "uint256"
+        }
+      ],
+      "name": "requestAcceptedBySeller",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "invoiceId",
+          "type": "uint256"
+        }
+      ],
+      "name": "requestAcceptedByFI",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "invoiceId",
+          "type": "uint256"
+        },
+        {
+          "name": "FIId",
+          "type": "uint256"
+        },
+        {
+          "name": "sellerId",
+          "type": "uint256"
+        },
+        {
+          "name": "advaceAmount",
+          "type": "uint256"
+        }
+      ],
+      "name": "sendAdvanceAmountToSellerByFI",
+      "outputs": [],
+      "payable": true,
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "invoiceId",
+          "type": "uint256"
+        }
+      ],
+      "name": "productTransferedBySeller",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "invoiceId",
+          "type": "uint256"
+        },
+        {
+          "name": "FIId",
+          "type": "uint256"
+        },
+        {
+          "name": "buyerId",
+          "type": "uint256"
+        },
+        {
+          "name": "Amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "sendAmountToFIByBuyer",
+      "outputs": [],
+      "payable": true,
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "invoiceId",
+          "type": "uint256"
+        },
+        {
+          "name": "FIId",
+          "type": "uint256"
+        },
+        {
+          "name": "sellerId",
+          "type": "uint256"
+        },
+        {
+          "name": "RemainingBalance",
+          "type": "uint256"
+        }
+      ],
+      "name": "sendRemainingAmountToSellerByFI",
+      "outputs": [],
+      "payable": true,
+      "stateMutability": "payable",
+      "type": "function"
+    }
+  ];
+    
+   // var contractAddress = "0x45e7fad9271b5e23991ae9fabe6f956ec49211b1";
+    var contractAddress = "0x969d80a3d17a2db5e71aaa76a119a3fb641ea498"
+      async function init() {
+        TradeFinance = await new web3.eth.Contract(abi, contractAddress);
+        var accounts = await web3.eth.getAccounts();
+        console.log(accounts);
+        console.log(TradeFinance);
+        web3.eth.defaultAccount = accounts[0];
+      }
+      init();
+
+      async function Buyers(){
+        var Buyers =  document.getElementById('Buyers').value;
+        TradeFinance.methods.buyers().call().then(function(data){
+            var tr;
+     
+     tr = $('<tr/>');
+     tr.append("<td>" + data.buyerId + "</td>");
+     tr.append("<td>" + data.buyerName + "</td>");
+     tr.append("<td>" + data.country + "</td>");
+     tr.append("<td>" + data.buyerAddress + "</td>");
+     tr.append("<td>" + data.buyerBalance + "</td>");
+     $('#table1').append(tr);
+	});
+    }
+    
+
+
+    async function FinancialInstitution(){
+        var FinancialInstitution =  document.getElementById('FinancialInstitution').value;
+        TradeFinance.methods.fis().call().then(function(data){
+            var tr;
+    
+     tr.append("<td>" + data.FIId + "</td>");
+     tr.append("<td>" + data.FIName + "</td>");
+     tr.append("<td>" + data.FIAddress + "</td>");
+     tr.append("<td>" + data.FIBalance + "</td>");
+     $('#table2').append(tr);
+	});
+    }
+    
+    async function Products(){
+        var Products =  document.getElementById('Products').value;
+        TradeFinance.methods.products().call().then(function(data){
+            var tr;
+     
+     tr.append("<td>" + data.productId + "</td>");
+     tr.append("<td>" + data.productName + "</td>");
+     tr.append("<td>" + data.quantity + "</td>");
+     tr.append("<td>" + data.productPrice + "</td>");
+     $('#table3').append(tr);
+	});
+    }
+    
+    async function ProductStatus(){
+        var ProductStatus =  document.getElementById('ProductStatus').value;
+        TradeFinance.methods.productstatus().call().then(function(data){
+            var tr;
+    
+     tr.append("<td>" + data.invoiceId + "</td>");
+     tr.append("<td>" + data.productName + "</td>");
+     tr.append("<td>" + data.quantity + "</td>");
+     tr.append("<td>" + data.productPrice + "</td>");
+     tr.append("<td>" + data.IsitSeller + "</td>");
+     tr.append("<td>" + data.status + "</td>");
+     tr.append("<td>" + data.advanceAmount + "</td>");
+     tr.append("<td>" + data.IsitFI + "</td>");
+     tr.append("<td>" + data.IsitApproved + "</td>");
+     tr.append("<td>" + data.advaceAmountReceived + "</td>");
+     tr.append("<td>" + data.ProductTransfered + "</td>");
+     tr.append("<td>" + data.Amount + "</td>");
+     tr.append("<td>" + data.RemainingBalance + "</td>");
+     
+     $('#table4').append(tr);
+	});
+    }
+    // async function getHandler() {
+    //   var tuid = document.getElementById('handadd').value;
+  
+    //   supplyChain.methods.getHandler(tuid).call().then(function(data) {
+    //     str = '<div class="table-responsive mt-5"><table class="table table-bordered table-striped"><thead><tr><th>Name</th><th>Role</th><th>Address</th><th>Handler Address</th></tr></thead><tbody>';
+	// 			str = str + '<tr><td>'+ web3.utils.toAscii(data[0]) + '</td>' +'<td>'+web3.utils.toAscii(data[1]) + '</td>' +'<td>'+web3.utils.toAscii(data[2]) + '</td>' + '<td>'+tuid+'</td></tr>';
+	// 			str = str + '</tbody></table></div>';
+	// 			document.getElementById("gethandinfo").innerHTML = str;
+    //   });
+    // }
+    
+    async function Sellers(){
+        var Sellers =  document.getElementById('Sellers').value;
+        TradeFinance.methods.sellers().call().then(function(data){
+
+            // str = '<div class="table-responsive mt-5"><table class="table table-bordered table-striped"><thead><tr><th>sellerId</th><th>sellerName</th><th>country</th><th>sellerAddress</th><th>sellerBalance</th></tr></thead><tbody>';
+			// 	str = str + '<tr><td>'+ web3.utils.toAscii(data[0]) + '</td>' +'<td>'+web3.utils.toAscii(data[1]) + '</td>' +'<td>'+web3.utils.toAscii(data[2]) + '</td>' + '<td>'+tuid+'</td></tr>';
+			// 	str = str + '</tbody></table></div>';
+			// document.getElementById("gethandinfo").innerHTML = str;
+  
+            var tr;
+     tr.append("<td>" + data.sellerId + "</td>");
+     tr.append("<td>" + data.sellerName + "</td>");
+     tr.append("<td>" + data.country + "</td>");
+     tr.append("<td>" + data.sellerAddress + "</td>");
+     tr.append("<td>" + data.sellerBalance + "</td>");
+     $('#table5').append(tr);
+	});
+	}
+  
+  function cleanPadding(bstr) {
+	let len = bstr.length;
+	let i = len;
+	// Count amount of zeroes
+	while (i >= 1) {
+		if(bstr[i-1] != '0') {
+			break;
+		}
+		i--;
+	}
+	return(bstr.substring(0,i));
+}
+
+  </script>
+</body>
+</html>
